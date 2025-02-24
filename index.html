@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>2048小游戏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="main">
+        <div class="gameName">Geometry Dash</div>
+        
+        <section id="game" class="game-wrapper">
+            <div class="game-container">
+                <div id="game-arena">
+                    <div class="talpa-splash-container">
+                        <div class="talpa-splash-top">
+                            <div>
+                                <div style="--thumb:url(/img/games/geometry-dash.png)"></div>
+                                <div class="talpa-btn-play">
+                                    <span onclick="playGame()">Play Now
+                                        <svg focusable="false" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M10 15.0657V8.93426C10 8.53491 10.4451 8.29671 10.7773 8.51823L15.376 11.584C15.6728 11.7819 15.6728 12.2181 15.376 12.416L10.7774 15.4818C10.4451 15.7033 10 15.4651 10 15.0657Z"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="talpa-loader" style="display: none;">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="game-controls">
+                <button onclick="toggleFullscreen()" class="fullscreen-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <div class="col-sm-12 col-md-12" style="line-height: 40px; text-align: center; margin-top: 20px;">
+            <span style="margin: 0 10px;">
+                <a href="3d-moto-simulator-2.html">3D Moto Simulator 2</a>
+            </span>
+            <div class="thank-you" style="margin-top: 15px; font-size: 18px; color: #333; font-weight: bold;">
+                CẢM ƠN THẦY GIÁO THẮNG
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function playGame() {
+        let gameUrl = "https://edumaths.github.io/s0/geometry-dash";
+        let gameTitle = "Geometry Dash";
+        document.querySelector('#game-arena').innerHTML = `<iframe title="${gameTitle}" src="${gameUrl}" allowfullscreen frameborder="0" width="100%" height="100%" scrolling="none"></iframe>`
+    }
+
+    function toggleFullscreen() {
+        const gameWrapper = document.querySelector('.game-wrapper');
+        
+        if (!document.fullscreenElement) {
+            if (gameWrapper.requestFullscreen) {
+                gameWrapper.requestFullscreen();
+            } else if (gameWrapper.webkitRequestFullscreen) { /* Safari */
+                gameWrapper.webkitRequestFullscreen();
+            } else if (gameWrapper.msRequestFullscreen) { /* IE11 */
+                gameWrapper.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
